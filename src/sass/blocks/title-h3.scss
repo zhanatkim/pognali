@@ -1,0 +1,13 @@
+.title-h3 {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 36px;
+  text-align: left;
+  color: $color-catalina-blue;
+  margin: 0;
+
+  @include vp-767 {
+    font-size: 20px;
+    line-height: 20px;
+  }
+}

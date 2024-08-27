@@ -1,0 +1,181 @@
+.user-form {
+  @include vp-1023 {
+    // padding: 0 35px;
+  }
+
+  @include vp-767 {
+    padding: 0;
+  }
+}
+.user-form__wrapper {
+  width: 100%;
+  padding-left: 64px;
+  padding-bottom: 75px;
+
+  display: grid;
+  grid-template-columns: 786fr 95fr 298fr;
+  grid-template-areas: 
+    "title grade ava"
+    "tags toggles toggles";
+
+  column-gap: 40px;
+  row-gap: 25px;
+
+  @include vp-1023 {
+    padding-left: 0;
+    padding-bottom: 63px;
+    grid-template-columns: 94fr 308fr 94fr;
+    grid-template-areas: 
+      "title title title"
+      "grade toggles ava"
+      "btn btn btn"
+      "tags tags tags";
+
+    column-gap: 60px;
+    row-gap: 50px;
+  }
+
+  @include vp-767 {
+    padding-bottom: 34px;
+    grid-template-columns: 117px 1fr;
+    grid-template-areas: 
+      "title title"
+      "grade  ava"
+      "btn btn"
+      "tags tags"
+      "toggles toggles";
+
+    column-gap: 35px;
+    row-gap: 20px;
+    padding-bottom: 35px;
+  }
+}
+
+.user-form__title {
+  grid-area: title;
+  padding-top: 68px;
+  padding-bottom: 68px;
+
+  @include vp-1023 {
+    padding-top: 0;
+    padding-bottom: 66px;
+  }
+
+  @include vp-767 {
+    padding-bottom: 12px;
+  }
+}
+
+.user-form__user-grade {
+  grid-area: grade;
+  margin-top: 42px;
+
+  @include vp-1023 {
+    margin-top: 18px;
+    align-self: flex-end;
+  }
+
+  @include vp-767 {
+    justify-self: center;
+    align-self: center;
+    margin-top: 5px;
+  }
+
+  @include vp-374 {
+    justify-self: flex-end;
+  }
+}
+
+.user-form__user-avatar {
+  grid-area: ava;
+
+  @include vp-1023 {
+    margin-top: 18px;
+  }
+
+  @include vp-767 {
+    justify-self: flex-end;
+    align-self: center;
+    margin-top: 5px;
+    max-width: 200px;
+    max-height: 200px;
+  }
+
+  @include vp-374 {
+    justify-self: flex-start;
+  }
+}
+
+.user-form__tags-input {
+  grid-area: tags;
+
+  @include vp-767 {
+    margin-top: 13px;
+  }
+}
+
+.user-form__toggles {
+  grid-area: toggles;
+
+  align-self: flex-start;
+  justify-self: flex-end;
+
+  @include vp-1023 {
+    align-self: flex-end;
+    justify-self: center;
+  }
+}
+
+.user-form__avatar-btn {
+  display: none;
+
+  text-transform: uppercase;
+  background-color: $color-hawkes-blue;
+  border-radius: 10px;
+  border: none;
+  overflow: hidden;
+
+  padding: 21px;
+
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 18px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  cursor: pointer;
+  transition: background-color $trans-default;
+
+  grid-area: btn;
+
+  span {
+    opacity: 1;
+    transition: opacity $trans-default;
+  }
+
+  @include vp-1023 {
+    display: flex;
+  }
+
+  @include vp-767 {
+    padding: 10px;
+    border-radius: 20px;
+    letter-spacing: 0;
+  }
+
+  @include hover-focus {
+    background-color: #D1D7E9;
+  }
+
+  &:active {
+    background-color: $color-hawkes-blue;
+
+    span {
+      opacity: 0.3;
+    }
+  }
+}

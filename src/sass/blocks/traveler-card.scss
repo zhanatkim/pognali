@@ -1,0 +1,452 @@
+.traveler-card {
+  --basic-blue-light: #1d2e5b;
+  width: 100%;
+  background-color: $color-default-white;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: none;
+
+  display: grid;
+  grid-template-columns: 285fr 628fr;
+  gap: 3.8%;
+
+  transition: box-shadow $trans-default;
+
+  @include vp-1279 {
+    gap: 2%;
+  }
+
+  @include vp-1023 {
+    display: flex;
+    gap: 0;
+  }
+
+  @include vp-767 {}
+
+  @include hover-focus {
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.25);
+
+    .traveler-card__image img {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.traveler-card__wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 46px 6.65% 6.7% 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+
+  @include vp-1279 {
+    padding: 5% 5% 5% 0;
+    gap: 28px;
+  }
+
+  @include vp-1023 {
+    padding: 34px 25px 26px 35px;
+    gap: 28px;
+  }
+
+  @include vp-767 {
+    padding: 14px 22px 19px 18px;
+    gap: 0;
+  }
+
+}
+
+.traveler-card__top {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 3fr 2.23fr;
+  grid-template-areas: 
+    "header flags"
+    "tags flags";
+  // column-gap: 12.4%;
+  column-gap: 6.5%;
+  row-gap: 20px;
+
+  @include vp-1279 {
+    column-gap: 5%;
+  }
+
+  @include vp-1023 {
+    grid-template-columns: 190fr 320fr 60px;
+    grid-template-areas: 
+      "image center right";
+    column-gap: 30px;
+
+  }
+
+  @include vp-767 {
+    grid-template-columns: 70fr 155fr;
+    grid-template-areas: 
+      "image header"
+      "image likes"
+      "tags tags";
+    gap: 3px;
+    padding-bottom: 20px;
+  }
+}
+
+.traveler-card__bottom {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2%;
+
+  padding-left: 18px;
+
+  @include vp-1279 {
+    gap: 1%;
+  }
+
+  @include vp-1023 {
+    padding-left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2%;
+  }
+
+  @include vp-767 {
+    --left-padding: 20px;
+    --right-padding: 20px;
+    position: relative;
+    padding-top: 18px;
+    display: grid;
+    grid-template-columns: 1fr 45px;
+    grid-template-areas: 
+      "transport grade"
+      "btn btn";
+    row-gap: 13px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 1px;
+      background-color: $color-solitude;
+      top: 0;
+      width: calc(100% + var(--left-padding) + var(--right-padding));
+      left: calc(-1 * var(--left-padding));
+      right: var(--right-padding);
+    }
+  }
+}
+
+.traveler-card__center {
+  display: flex;
+  gap: 4px;
+
+  @include vp-1279 {
+    gap: 2px;
+  }
+
+  @include vp-1023 {
+    margin-right: 0;
+    grid-area: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "header header"
+      "tags tags"
+      "btn likes";
+    gap: 4px;
+  }
+
+  @include vp-767 {
+    padding-bottom: 2px;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "flags";
+      padding-bottom: 22px;
+  }
+}
+
+.traveler-card__right {
+  @include vp-1023 {
+    grid-area: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+.traveler-card__image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+
+  @include vp-1023 {
+    grid-area: image;
+    border-radius: 20px;
+  }
+
+  @include vp-767 {
+    border-radius: 50%;
+    align-self: flex-start;
+    height: auto;
+  }
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+
+    transition: transform $trans-default;
+  }
+
+}
+
+.traveler-card__header {
+  align-self: flex-start;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-area: header;
+
+  @include vp-1023 {
+    justify-content: flex-start;
+  }
+
+  @include vp-767 {
+    margin-left: 8px;
+    align-self: flex-end;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.traveler-card__title {
+  margin: 0;
+  width: 100%;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 100%;
+  color: var(--basic-blue-light);
+  padding-left: 18px;
+
+  @include vp-1279 {
+    font-size: 28px;
+  }
+
+  @include vp-1023 {
+    font-size: 30px;
+    padding-left: 0;
+    width: max-content;
+    padding-right: 22px;
+  }
+
+  @include vp-767 {
+    font-size: 20px;
+    padding-right: 0;
+    width: 60%;
+  }
+}
+
+.traveler-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  width: 100%;
+  max-width: 226px;
+
+  padding-left: calc(8px + 18px);
+
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 115%;
+  color: $color-default-black;
+
+  grid-area: tags;
+
+  @include vp-1279 {
+    font-size: 18px;
+  }
+
+  @include vp-1023 {
+    font-size: 20px;
+    padding-left: 0;
+  }
+
+  @include vp-767 {
+    // min-height: 43px;
+    // padding-top: 13px;
+    // max-width: unset;
+    // font-size: 15px;
+    // line-height: 120%;
+    padding-top: 8px;
+    padding-left: 8px;
+    max-width: unset;
+    font-size: 15px;
+    line-height: 126%;
+  }
+}
+
+.traveler-card__btn {
+  width: fit-content;
+  max-width: 170px;
+  background-color: $color-pale-cornflower-blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 17px 26px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+
+  grid-area: btn;
+
+  transition: background-color $trans-default;
+
+  @include vp-1279 {
+    padding: 14px;
+  }
+
+  @include vp-1023 {
+    padding: 17px 36px;
+    align-self: flex-end;
+  }
+
+  @include vp-767 {
+    width: 100%;
+    max-width: unset;
+    padding: 14px;
+  }
+
+  span {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: $color-midnight-express;
+
+    transition: opacity $trans-default;
+
+    @include vp-1279 {
+      font-size: 18px;
+    }
+  
+    @include vp-1023 {
+      font-size: 20px;
+    }
+
+
+
+    @include vp-767 {
+      font-size: 17px;
+    }
+  }
+
+  @include hover-focus {
+    background-color: $color-picton-blue;
+  }
+
+  &:active {
+    span {
+      opacity: 0.3;
+    };
+  }
+}
+
+.traveler-card__flags {
+  grid-area: flags;
+  justify-self: flex-end;
+}
+
+.traveler-card__likes {
+  grid-area: likes;
+
+  @include vp-1023 {
+    padding-right: 0;
+    align-self: flex-end;
+  }
+
+  @include vp-767 {
+    align-self: flex-start;
+    position: relative;
+    left: -22px;
+    z-index: 1;
+  }
+}
+
+.traveler-card__mark {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+
+  @include vp-767 {
+    margin-top: 8px;
+    width: 6px;
+    height: 6px;
+  }
+
+  &--is-online {
+    background-color: #81e31e;
+  }
+
+  &--is-offline {
+    background-color: #f97676;
+  }
+}
+
+.traveler-card__transport {
+  justify-self: center;
+  grid-area: transport;
+
+  @include vp-1023 {
+    margin-top: 1px;
+  }
+
+  @include vp-767 {
+    margin-top: 0;
+    position: relative;
+    justify-self: flex-start;
+
+    &::after {
+      content: "транспорт:";
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 107%;
+      color: $color-charcoal;
+      padding: 3px;
+      background-color: $color-default-white;
+      z-index: 1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateY(-165%);
+    }
+  }
+}
+
+.traveler-card__grade {
+  @include vp-767 {
+    position: relative;
+
+    &::after {
+      content: "левел:";
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 107%;
+      color: $color-charcoal;
+      padding: 0 3px;
+      background-color: $color-default-white;
+      z-index: 1;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -165%);
+    }
+  }
+}

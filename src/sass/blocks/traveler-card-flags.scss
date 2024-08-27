@@ -1,0 +1,145 @@
+.traveler-card-flags {
+  --left-padding: 35px;
+  --right-padding: 25px;
+  padding-top: 3px;
+  width: 100%;
+  display: flex;
+  position: relative;
+
+  @include vp-1023 {
+    padding-top: 26px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 1px;
+      background-color: $color-solitude;
+      top: 0;
+      width: calc(100% + var(--left-padding) + var(--right-padding));
+      left: calc(-1 * var(--left-padding));
+      right: var(--right-padding);
+    }
+
+    &::after {
+      content: "хочет посетить:";
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 107%;
+      color: $color-charcoal;
+      padding: 3px;
+      background-color: $color-default-white;
+      z-index: 1;
+      position: absolute;
+      top: 0;
+      left: 45px;
+      transform: translateY(-50%);
+
+      @include vp-767 {
+        left: 0;
+        font-size: 14px;
+        line-height: 114%;
+      }
+    }
+  }
+
+  @include vp-767 {
+    --left-padding: 20px;
+    --right-padding: 20px;
+    padding-top: 26px;
+    padding-left: 6px;
+  }
+}
+
+.traveler-card-flags__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 13px;
+
+  @include vp-1023 {
+    flex-direction: row;
+    gap: 11px;
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  @include vp-767 {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.traveler-card-flags__item {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 35px 1fr;
+  gap: 18px;
+
+  @include vp-1279 {
+    gap: 11px;
+  }
+
+  @include vp-1023 {
+    grid-template-columns: 42px 1fr;
+    width: max-content;
+  }
+
+  @include vp-767 {
+    width: 100%;
+    gap: 14px;
+    grid-template-columns: 26px 1fr;
+  }
+}
+
+.traveler-card-flags__image {
+  display: flex;
+  overflow: hidden;
+  width: 35px;
+  height: 24px;
+  border-radius: 2px;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+  }
+
+  @include vp-1023 {
+    width: 42px;
+    height: 24px;
+  }
+
+  @include vp-767 {
+    width: 26px;
+    height: 18px;
+  }
+}
+
+.traveler-card-flags__label {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: $color-catalina-blue;
+  overflow-wrap: break-word;
+  align-self: flex-end;
+
+  @include vp-1279 {
+    font-size: 18px;
+  }
+
+  @include vp-1023 {
+    font-size: 20px;
+  }
+
+  @include vp-767 {
+    font-size: 15px;
+    line-height: 107%;
+  }
+}

@@ -1,0 +1,568 @@
+.select-countries {
+    min-height: 444px;
+    height: 100%;
+    padding: 63px 0 7px;
+    margin-top: -30px;
+
+    @include vp-1023 {
+        padding: 43px 0 0;
+        min-height: 388px;
+    }
+
+    @include vp-767 {
+        min-height: 302px;
+    }
+
+    &__wrapper-block {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__add-button {
+        position: relative;
+        max-width: 730px;
+        width: 100%;
+        padding: 24px 26px 25px 26px;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 22px;
+        text-align: start;
+        text-transform: uppercase;
+        color: $color-catalina-blue;
+        background-color: $color-default-white;
+        transition: background-color $trans-default;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        user-select: none;
+
+        @include vp-767 {
+            height: 42px;
+            font-size: 14px;
+            line-height: 18px;
+            letter-spacing: 1.5px;
+            padding: 12px 10px 12px 10px;
+            background-color: $color-solitude;
+        }
+
+        &::before,
+        &::after {
+            position: absolute;
+            content: "";
+            width: 20px;
+            height: 2px;
+            top: 50%;
+            right: 25px;
+            background-color: $color-default-black;
+            opacity: 0.2;
+            transition: opacity $trans-default;
+
+            @include vp-767 {
+                width: 14px;
+                right: 15px;
+                background-color: $color-link-water-second;
+                opacity: 1;
+            }
+        }
+
+        &::after {
+            rotate: 90deg;
+        }
+
+        &:hover {
+            background-color: $color-hawkes-blue;
+
+            &::before,
+            &::after {
+                opacity: 0.3;
+            }
+        }
+
+        &:active {
+            &::before,
+            &::after {
+                opacity: 0.1;
+            }
+        }
+    }
+
+    &__button-wrapper,
+    &__wrapper {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(min-content, 730px) 48px 134px 30px;
+        justify-content: space-between;
+        align-items: center;
+
+        @include vp-1023 {
+            grid-template-columns: minmax(369px, 730px) 52px 89px 30px;
+        }
+
+        @include vp-767 {
+            grid-template-columns: 1fr 53px;
+
+            &--mobile {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+
+    &__wrapper {
+        margin-bottom: 15px;
+
+        &:first-child {
+            .select-countries__button-close {
+                display: none;
+            }
+        }
+
+        @include vp-767 {
+            margin-bottom: 22px;
+
+            &:nth-child(4n) .select-countries__arrow-mobile {
+                display: none;
+            }
+        }
+    }
+
+    &__button-wrapper {
+        @include vp-767 {
+            grid-template-columns: 1fr;
+        }
+
+        .select-countries__circle::after {
+            background-color: $color-solitude;
+        }
+    }
+
+    &__wrapper.no-visible,
+    &__button-wrapper.no-visible {
+        display: none;
+    }
+
+    &__label {
+        position: relative;
+        display: block;
+        max-width: 730px;
+        width: 100%;
+    }
+
+    &__input {
+        width: 100%;
+        height: 70px;
+        padding: 26px 24px 22px 26px;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 22px;
+        text-align: start;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: $color-catalina-blue;
+        background-color: $color-default-white;
+        border: 1px solid $color-link-water;
+        border-radius: 4px;
+        transition: border-color $trans-default;
+        cursor: pointer;
+
+        @include vp-767 {
+            height: 42px;
+            font-size: 14px;
+            line-height: 18px;
+            padding: 12px 10px 12px 8px;
+            letter-spacing: 1.5px;
+        }
+
+        &::placeholder {
+            color: $color-catalina-blue;
+            user-select: none;
+        }
+
+        &:hover {
+            border-color: $color-rock-blue;
+        }
+
+        &:active::placeholder {
+            color: $color-default-white;
+        }
+
+        &:active,
+        &.is-open {
+            color: $color-default-white;
+            background-color: $color-catalina-blue;
+            border-color: $color-transparent;
+
+            & ~ .select-countries__icon-arrow {
+                display: none;
+            }
+
+            & ~ .select-countries__button-input-reset {
+                display: block;
+            }
+
+            &::placeholder {
+                color: $color-default-white;
+            }
+        }
+
+        &.is-open {
+            border-radius: 4px 4px 0 0;
+        }
+    }
+
+    &__icon-arrow {
+        position: absolute;
+        top: calc(50% - 14px);
+        right: 24px;
+
+        @include vp-767 {
+            width: 16px;
+            height: 12px;
+            top: 17px;
+            right: 13px;
+        }
+    }
+
+    &__button-input-reset {
+        position: absolute;
+        padding: 0;
+        top: calc(50% - 10px);
+        right: 24px;
+        background-color: $color-transparent;
+        border: none;
+        cursor: pointer;
+
+        svg {
+            opacity: 0.3;
+            transition: opacity $trans-default;
+        }
+
+        &:hover {
+            svg {
+                opacity: 1;
+            }
+        }
+
+        &:active {
+            svg {
+                opacity: 0.1;
+            }
+        }
+
+        @include vp-767 {
+            top: 14px;
+            right: 13px;
+
+            svg {
+                width: 14px;
+                height: 14px;
+            }
+
+        }
+    }
+
+    &__circle {
+        position: relative;
+        margin-left: 17px;
+        margin-right: 17px;
+
+        @include vp-767 {
+            position: absolute;
+            top: 17px;
+            right: 40px;
+        }
+
+        &::after {
+            position: absolute;
+            content: "";
+            width: 14px;
+            height: 14px;
+            top: -10px;
+            left: 2px;
+            border-radius: 50%;
+            background-color: $color-default-white;
+            border: 1px solid $color-link-water;
+            z-index: 10;
+
+            @include vp-767 {
+                width: 8px;
+                height: 8px;
+                top: 0;
+                left: 0;
+            }
+        }
+
+        &::before {
+            position: absolute;
+            content: "";
+            top: -88px;
+            bottom: -50px;
+            // bottom: -158px;
+            left: 9px;
+            width: 1px;
+            background-color: $color-solitude3;
+
+            @include vp-1023 {
+                top: -79px;
+            }
+
+            @include vp-767 {
+                display: none;
+            }
+        }
+
+        &.is-color::after {
+            background-color: $color-catalina-blue;
+            border-color: $color-catalina-blue;
+        }
+    }
+
+    &__flag {
+        width: 70px;
+        height: 47px;
+        margin-right: 17px;
+        border-radius: 6px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @include vp-767 {
+            padding: 8.5px;
+            width: 53px;
+            height: 42px;
+            border: 1px solid $color-link-water;
+            border-radius: 4px;
+            margin-right: 0;
+
+            &.no-visible {
+                display: none;
+            }
+        }
+    }
+
+    &__button-close {
+        margin-left: auto;
+        width: 30px;
+        height: 30px;
+        padding: 4px;
+        background-color: $color-transparent;
+        border: none;
+        cursor: pointer;
+
+        @include vp-767 {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: -10px;
+            right: -10px;
+            width: 21px;
+            height: 21px;
+            border-radius: 50%;
+            background-color: $color-solitude;
+        }
+
+        svg {
+            opacity: 0.1;
+            transition: opacity $trans-default;
+
+            @include vp-767 {
+                width: 9px;
+                height: 9px;
+            }
+        }
+
+        &:hover {
+            svg {
+                opacity: 0.3;
+            }
+        }
+
+        &:active {
+            svg {
+                opacity: 0.05;
+            }
+        }
+    }
+
+    &__arrow-mobile {
+        display: none;
+        position: absolute;
+        top: 49px;
+        right: 49px;
+
+        @include vp-767 {
+            display: block;
+        }
+    }
+
+    &__select {
+        display: flex;
+        max-height: 478px;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        max-width: 730px;
+        width: 100%;
+        justify-content: space-between;
+        padding: 0;
+        background-color: $color-default-white;
+        box-shadow: 0px 8px 16px 0px rgba(54, 80, 148, 0.18);
+        border-radius: 0 0 4px 4px;
+        z-index: 111;
+
+        @include vp-1023 {
+            max-width: none;
+            max-height: 410px;
+            width: unset;
+            left: 0;
+            right: -40px;
+        }
+
+        @include vp-767 {
+            flex-direction: column;
+            top: 42px;
+            right: 0;
+            max-height: 522px;
+            padding-bottom: 20px;
+            border: 1px solid $color-hawkes-blue-third;
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+        }
+    }
+
+    &__list-buttons {
+        list-style: none;
+        display: grid;
+        align-self: start;
+        margin: 0;
+        padding: 32px 26px 36px;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        gap: 15px;
+
+        @include vp-1023 {
+            gap: 0;
+        }
+
+        @include vp-767 {
+            padding: 0;
+            align-self: stretch;
+        }
+    }
+
+    &__item-button {
+        @include vp-767 {
+            min-width: 43.9px;
+        }
+    }
+
+    &__button {
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60px;
+        height: 70px;
+        background-color: $color-transparent;
+        border: 1px solid $color-link-water;
+        border-radius: 4px;
+        color: $color-catalina-blue;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: border-color $trans-default, color $trans-default, background-color $trans-default;
+
+        @include vp-1023 {
+            width: 52.5px;
+            height: 69.2px;
+            border-radius: 0;
+        }
+
+        @include vp-767 {
+            width: 100%;
+            height: 41px;
+        }
+
+        &:hover {
+            border-color: $color-rock-blue;
+        }
+
+        &:active {
+            color: $color-default-white;
+            background-color: $color-catalina-blue;
+            border-color: $color-catalina-blue;
+
+            @include vp-1023 {
+                color: $color-catalina-blue;
+                background-color: $color-solitude;
+                border-color: $color-solitude;
+            }
+        }
+    }
+
+    &__button.is-active {
+        color: $color-default-white;
+        background-color: $color-catalina-blue;
+        border-color: $color-catalina-blue;
+
+        @include vp-767 {
+            color: $color-catalina-blue;
+            background-color: $color-solitude;
+            border-color: $color-solitude;
+        }
+    }
+
+    &__list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        row-gap: 8px;
+        padding: 35px 20px 34px 34px;
+        overflow-y: auto;
+        border-left: 1px solid $color-hawkes-blue-third;
+        max-width: 241px;
+        // min-width: 218px;
+
+        @include vp-1023 {
+            max-width: none;
+            min-width: 218px;
+            padding: 33px 20px 34px 30px;
+            row-gap: 7px;
+        }
+
+        @include vp-767 {
+            width: 100%;
+            min-width: 0;
+            padding: 20px 20px 0;
+            row-gap: 5px;
+        }
+    }
+
+    &__btn {
+        background-color: $color-transparent;
+        border: none;
+        padding: 0;
+        font-size: 20px;
+        line-height: 20px;
+        color: $color-charcoal;
+        transition: color $trans-default, opacity $trans-default;
+        cursor: pointer;
+        text-align: left;
+
+        &:hover {
+            color: $color-catalina-blue;
+        }
+
+        &:active {
+            color: $color-catalina-blue;
+            opacity: 0.3;
+        }
+
+        @include vp-767 {
+            font-size: 16px;
+            line-height: 22px;
+        }
+    }
+}

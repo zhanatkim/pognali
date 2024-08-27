@@ -1,0 +1,75 @@
+.traveler-card-transport {
+  display: flex;
+  width: max-content;
+  flex-grow: 1;
+}
+
+.traveler-card-transport__list {
+  margin: 0;
+  padding: 0;
+  margin-right: 16%;
+  list-style: none;
+  width: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  column-gap: 6%;
+  row-gap: 10px;
+
+  @include vp-1279 {
+    margin-right: 0;
+  }
+
+  @include vp-1023 {
+    flex-direction: column;
+    justify-content: flex-start;
+    row-gap: 12px;
+  }
+
+  @include vp-767 {
+    gap: 2px;
+    flex-direction: row;
+    padding-left: 2px;
+  }
+}
+
+.traveler-card-transport__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &--dark {
+    color: $color-midnight-express;
+  }
+
+  &--light {
+    color: rgba($color-midnight-express, 0.15);
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+
+  @include vp-1023 {
+
+    svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
+
+  @include vp-767 {
+    padding: 8px 9px;
+    border-radius: 50%;
+    background-color: $color-solitude;
+
+    svg {
+      width: 13px;
+      height: 16px;
+    }
+  }
+}

@@ -1,0 +1,364 @@
+.react-calendar {
+  max-width: 100%;
+  background-color: transparent;
+  border: none;
+
+  & button {
+    &:enabled:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__navigation__prev2-button {
+    display: none;
+  }
+
+  &__navigation__next2-button {
+    display: none;
+  }
+
+  &__navigation {
+    position: relative;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    //margin-bottom: 10px;
+    padding-top: 29px;
+    padding-bottom: 21px;
+
+    @include vp-1023 {
+      padding-left: 15px;
+      padding-right: 15px;
+      padding-bottom: 22px;
+    }
+
+    @include vp-767 {
+      padding-top: 10px;
+      padding-bottom: 12px;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 1px;
+      background-color: $color-hawkes-blue;
+    }
+
+    &:before {
+      top: 0
+    }
+
+    &:after {
+      bottom: 0;
+    }
+
+    button {
+      padding: 0;
+      background-color: transparent;
+      border: none;
+
+      & svg {
+        width: 16px;
+        height: 28px;
+
+        & path {
+          fill: rgba($color-default-black, 0.3);
+          transition: fill $trans-default;
+        }
+
+        @include vp-1023 {
+          width: 19px;
+          height: 34px;
+        }
+
+        @include vp-767 {
+          width: 14px;
+          height: 21px;
+        }
+      }
+
+      &[disabled] {
+        color: $color-gainsboro;
+      }
+
+      &:enabled:hover,
+      &:enabled:focus {
+        & svg {
+          & path {
+            fill: rgba($color-default-black, 0.5);
+          }
+        }
+      }
+
+      &:enabled:active {
+        & svg {
+          & path {
+            fill: rgba($color-default-black, 0.1);
+          }
+        }
+      }
+    }
+
+    &__label {
+      flex-grow: 0;
+      flex-basis: 30%;
+      max-width: 30%;
+
+      @include vp-1023 {
+        flex-basis: 70%;
+        max-width: 70%;
+      }
+    }
+
+    &__label__labelText {
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 36px;
+      color: $color-catalina-blue;
+      margin: 0;
+
+      @include vp-767 {
+        font-size: 20px;
+        line-height: 20px;
+      }
+    }
+  }
+
+  &__navigation__prev-button {
+    display: flex;
+    transform: rotate(-180deg);
+
+    & svg {
+      margin: auto;
+    }
+  }
+
+  &__navigation__next-button {
+    display: flex;
+
+    & svg {
+      margin: auto;
+    }
+  }
+
+  &__month-view__weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  &__month-view__weekdays__weekday {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 18px;
+    color: $color-charcoal;
+    padding: 20px 14px;
+
+    @include vp-1023 {
+      padding-left: 0;
+      padding-top: 37px;
+      padding-bottom: 11px;
+    }
+
+    @include vp-767 {
+      font-size: 14px;
+      line-height: 18px;
+      padding: 5px;
+      padding-top: 23px;
+      padding-bottom: 8px;
+    }
+
+    &--weekend {
+      color: $color-outrageous-orange;
+    }
+
+    & abbr {
+      text-decoration: none;
+      text-transform: capitalize;
+    }
+  }
+
+  &__month-view__weekNumbers {}
+
+  &__month-view__weekNumbers .react-calendar__tile {}
+
+  &__month-view__days {
+    &--weekend {}
+
+    &--neighboringMonth {}
+  }
+
+  &__tile {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 71px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 18px;
+    color: $color-charcoal;
+    background-color: $color-solitude;
+    border: none;
+    box-shadow: 0 0 1px 1px $color-link-water;
+    padding: 14px;
+    text-align: left;
+    transition: color $trans-default,
+      background-color $trans-default,
+      border-color $trans-default,
+      box-shadow $trans-default;
+
+    &:disabled {
+      color: rgba($color-charcoal, 0.3);
+      background-color: $color-default-white;
+    }
+
+    &:enabled:hover,
+    &:enabled:focus {
+      color: $color-default-white;
+      background-color: $color-catalina-blue;
+      box-shadow: inset 0 0 0 4px $color-outrageous-orange;
+      //border: 4px solid $color-outrageous-orange;
+    }
+
+    &:active {}
+
+    & .calendar__day-description {
+      display: none;
+    }
+
+    &--now {
+      color: $color-default-white;
+      background-color: $color-catalina-blue;
+      box-shadow: inset 0 0 0 4px $color-outrageous-orange;
+
+      &:enabled:hover,
+      &:enabled:focus {
+        //border: 4px solid $color-outrageous-orange;
+      }
+    }
+
+    &--hasActive {
+      //&:enabled:hover,
+      //&:enabled:focus {}
+    }
+
+    &--active {
+      background-color: $color-catalina-blue;
+      color: $color-default-white;
+      //box-shadow: inset 0 0 0 4px $color-outrageous-orange;
+
+      &:enabled:hover,
+      &:enabled:focus {
+        //border: 4px solid $color-catalina-blue;
+      }
+
+      @include vp-1023 {
+        text-align: center;
+      }
+    }
+
+    //&--range {}
+
+    &--rangeStart {
+      & abbr {
+        margin-bottom: 5px;
+        flex-basis: 100%;
+
+        @include vp-1023 {
+          margin-bottom: 0;
+        }
+      }
+
+      & .calendar__day-description {
+        display: block;
+
+        @include vp-1023 {
+          display: none;
+        }
+      }
+    }
+
+    &--rangeEnd {
+      & abbr {
+        margin-bottom: 5px;
+        flex-basis: 100%;
+
+        @include vp-1023 {
+          margin-bottom: 0;
+        }
+      }
+
+      & .calendar__day-description {
+        display: block;
+
+        @include vp-1023 {
+          display: none;
+        }
+      }
+    }
+
+    //&--rangeBothEnds {}
+
+    @include vp-1023 {
+      justify-content: center;
+      align-items: center;
+      height: 69px;
+    }
+
+    @include vp-767 {
+      font-size: 14px;
+      line-height: 18px;
+      padding: 6px;
+      height: auto;
+    }
+  }
+
+  &--selectRange .react-calendar__tile--hover {
+    background-color: $color-catalina-blue;
+    color: $color-default-white;
+  }
+
+  &--selectRange .react-calendar__tile--hover:disabled {
+    color: rgba($color-charcoal, 0.3);
+    background-color: $color-default-white;
+  }
+
+  &--selectRange .react-calendar__year-view .react-calendar__tile--hover,
+  &--selectRange .react-calendar__decade-view .react-calendar__tile--hover,
+  &--selectRange .react-calendar__century-view .react-calendar__tile--hover {
+    background-color: $color-solitude;
+    color: $color-charcoal;
+
+    &:enabled:hover,
+    &:enabled:focus {
+      color: $color-default-white;
+      background-color: $color-catalina-blue;
+      box-shadow: inset 0 0 0 4px $color-outrageous-orange;
+    }
+  }
+
+  abbr {}
+}
+
+.calendar {
+  &--wrap {
+    margin-bottom: 57px;
+
+    @include vp-1023 {
+      margin-bottom: 48px;
+    }
+
+    @include vp-767 {
+      margin-bottom: 23px;
+    }
+  }
+
+  &__day-description {
+    color: $color-default-white;
+  }
+}

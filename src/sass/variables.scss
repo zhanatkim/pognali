@@ -1,0 +1,101 @@
+// Colors
+// ---------------------------------
+
+// Default
+
+$color-default-black:               #000000;
+$color-default-white:               #ffffff;
+$color-default-red:                 #ff0000;
+$color-default-white-transparent:   #ffffff1a;
+$color-default-white-60:            rgba(255, 255, 255, 0.6);
+$color-transparent:                 rgba(255, 255, 255, 0);
+
+// Project palette
+// для нейминга цветов используем https://www.htmlcsscolor.com/hex/334482
+
+$color-pale-cornflower-blue:        #a8d2f4;
+$color-pale-cornflower-blue-2:      #aed0eb;
+$color-picton-blue:                 #4d99d6;
+$color-picton-blue-second:          #4e91d1;
+$color-white-smoke:                 #f2f2f2;
+$color-white-smoke-2:               #ffefef;
+$color-midnight-express:            #192144;
+$color-midnight-express-second:     #121936;
+$color-midnight-express-third:      #161c35;
+$color-catalina-blue:               #1d2e5b;
+$color-gainsboro:                   #d9d9d9;
+$color-pink-swan:                   #b2b2b2;
+$color-link-water:                  #cbced9;
+$color-link-water-second:           #c2c4c9;
+$color-charcoal:                    #444444;
+$color-hawkes-blue:                 #d6d9e6;
+$color-hawkes-blue:                 #dfe3f0;
+$color-outrageous-orange:           #ff5c23;
+$color-rock-blue:                   #959bb2;
+$color-very-light-grey:             #cccccc;
+$color-light-coral:                 #f47e7e;
+$color-jordy-blue:                  #7ebaeb;
+$color-curious-blue:                #468ac1;
+$color-echo-blue:                   #aeb4cb;
+$color-periwinkle:                  #c8cee8;
+$color-lavender:                    #e2e5f2;
+$color-btn-howkes-blue:             #d6daed;
+$color-pattens-blue:                #cce5fA;
+$color-golden-dream:                #f3c72b;
+$color-neon-carrot:                 #ff8d30;
+$color-tutu:                        #f9eaea;
+$color-red-orange:                  #f02323;
+$color-remy:                        #f9d8d8;
+$color-hawkes-blue-third:           #d6d9e6;
+
+//Main background-color
+
+$color-solitude:                    #edeff6;
+$color-solitude2:                   #e2e5f1;
+$color-solitude3:                   #e1e3e9;
+
+// Gradient
+
+$black-to-right:                    linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 75%);
+
+// Typography
+// ---------------------------------
+
+// переменная используемая в html для подключения скейлинга
+$fz-default:                        16px;
+
+// у некоторых шрифтов в ios возникают проблемы с символом рубля
+// https://www.artlebedev.ru/kovodstvo/sections/159/#13
+$ff-rouble:                         "Rouble", "Arial", sans-serif;
+
+$ff-roboto:                          "Roboto", sans-serif;
+
+// Animation
+// ---------------------------------
+
+$tf-default:                        ease;
+$trans-default:                     0.3s $tf-default;
+
+// если требуется изинг отличный от $tf-default, то переменную называем не цифрой
+$trans-modal:                       opacity .3s ease;
+
+$trans-600:                         0.6s $tf-default;
+
+// Viewports
+// ---------------------------------
+
+$vp-320:                            320px;
+$vp-375:                            375px;
+$vp-768:                            768px;
+$vp-1024:                           1024px;
+$vp-1280:                           1280px;
+$vp-1367:                           1367px;
+$vp-1440:                           1440px;
+$vp-1920:                           1920px;
+
+// Retina
+// ---------------------------------
+
+
+$retina-dpi:                        144dpi;
+$retina-dppx:                       1.5dppx;

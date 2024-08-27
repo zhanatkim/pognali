@@ -1,0 +1,41 @@
+.title-h1 {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  margin: 0;
+
+  position: relative;
+  z-index: 14;
+
+  color: $color-default-white;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 100%;
+  letter-spacing: 2px;
+  // padding-top: 68px;
+  // padding-bottom: 68px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(50%);
+    width: 94%;
+    height: 8px;
+    overflow: hidden;
+    background-color: $color-picton-blue;
+    border-radius: 4px;
+    z-index: 14;
+
+    @include vp-767 {
+      height: 5px;
+    }
+  }
+
+  @include vp-767 {
+    font-size: 30px;
+    letter-spacing: 1px;
+  }
+}

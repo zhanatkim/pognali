@@ -1,0 +1,184 @@
+.slider {
+    display: flex;
+    flex-direction: column-reverse;
+    padding-top: 10px;
+
+    @include vp-1023 {
+        flex-direction: row;
+        align-items: center;
+        padding-top: 8px;
+    }
+
+    @include vp-767 {
+        flex-direction: column-reverse;
+        padding-top: 3px;
+    }
+
+    &__input-group {
+        display: flex;
+
+        @include vp-1023 {
+            max-width: 148px;
+        }
+
+        @include vp-767 {
+            max-width: 100%;
+        }
+
+        &.rs-input-group {
+            border-radius: 4px;
+            position: relative;
+
+            &::after {
+                position: absolute;
+                content: "";
+                width: 20px;
+                height: 14px;
+                top: calc(50% - 7px);
+                left: calc(50% - 10px);
+                background: linear-gradient($color-default-white 6px, $color-link-water 6px 7px, $color-default-white 7px 14px);
+            }
+        }
+
+        .rs-input-number.rs-input-group {
+            width: 50%;
+        }
+
+        input {
+            width: 100%;
+            height: 46px;
+            padding: 0;
+            text-align: center;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 20px;
+            letter-spacing: -0.5px;
+            color: $color-catalina-blue;
+            border: none;
+            border-radius: 0;
+            border: 1px solid $color-link-water;
+            background-color: $color-default-white;
+            cursor: pointer;
+            transition: border-color $trans-default;
+
+            @include vp-1023 {
+                padding: 3px 0 0;
+                letter-spacing: 0.5px;
+            }
+
+            @include vp-767 {
+                font-size: 14px;
+                line-height: 13px;
+                padding: 0;
+                height: 34px;
+            }
+
+            &:hover {
+                border-color: $color-rock-blue;
+            }
+            
+            &:active {
+                border-color: $color-midnight-express-third;
+                outline: none;
+            }
+        }
+    }
+
+    &__input-left {
+        input {
+            border-radius: 4px 0 0 4px;
+        }
+    }
+
+    &__input-right {
+        input {
+            border-radius: 0 4px 4px 0;
+        }
+    }
+
+    .rs-input-number-btn-group-vertical {
+        display: none;
+    }
+
+    &__bar {
+        margin: 0 auto;
+        margin-top: 35px;
+        margin-bottom: 43px;
+        width: 100%;
+        max-width: calc(100% - 6px);
+
+        @include vp-1023 {
+            max-width: 281px;
+            margin: 0 61px 0 0; 
+        }
+
+        @include vp-767 {
+            margin: 23px 0 25px;
+        }
+
+        &.rs-slider:hover {
+            .rs-slider-bar {
+                background-color: rgba(29, 46, 91, 0.2);
+            }
+        }
+        .rs-slider-bar {
+            width: 100%;
+            height: 3px;
+            border-radius: 2px;
+            background-color: rgba(29, 46, 91, 0.2);
+
+            &:hover,
+            &:active,
+            &:focus {
+                background-color: rgba(29, 46, 91, 0.2);
+            }
+        }
+
+        .rs-slider-progress-bar {
+            height: 3px;
+            border-radius: 2px;
+            background-color: $color-catalina-blue;
+        }
+
+        .rs-slider-handle {
+            &::before {
+                width: 13px;
+                height: 13px;
+                top: calc(50% - 3px);
+                background-color: $color-catalina-blue;
+                border: none;
+                box-shadow: none;
+                transition: transform $trans-default, box-shadow $trans-default;
+
+                @include vp-767 {
+                    width: 10px;
+                    height: 10px;
+                }
+            }
+
+            @include vp-1023 {
+                top: -1.5px;
+            }
+
+            @include vp-767 {
+                top: 0;
+            }
+        }
+
+        .rs-slider-handle:hover::before {
+            transform: scale(1.46);
+        }
+
+        .rs-slider-handle:active::before {
+            box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.24);
+        }
+
+        .rs-slider-handle:focus-visible:before {
+            transform: scale(1.46);
+        }
+
+        .rs-slider-tooltip.placement-top.rs-tooltip.rs-tooltip-arrow {
+            display: none;
+        }
+    }
+}

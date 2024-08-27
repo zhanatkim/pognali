@@ -1,0 +1,110 @@
+.custom-toggle {
+  display: flex;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 20px;
+  color: $color-catalina-blue;
+  text-transform: uppercase;
+
+  @include vp-767 {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 15px;
+    text-transform: none;
+  }
+
+  & input {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+
+    clip: rect(0 0 0 0);
+  }
+
+  & label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    & span {
+      margin-bottom: 0;
+      margin-left: 0;
+    }
+  }
+
+  &--checkbox {
+    min-height: 70px;
+    transform: translateX(27px);
+
+    & .custom-toggle__icon {
+      display: flex;
+      width: 36px;
+      height: 36px;
+      border: 1px solid $color-link-water;
+      transition: border-color $trans-default;
+      border-radius: 4px;
+      margin-right: 20px;
+
+      & svg {
+        margin: auto;
+        width: 11px;
+        height: 11p;
+      }
+
+      @include vp-767 {
+        width: 26px;
+        height: 26px;
+        margin-right: 14px;
+      }
+    }
+
+    & input:disabled + .custom-toggle__icon,
+    & input:disabled:hover + .custom-toggle__icon {
+      border-color: $color-solitude2;
+      background-color: $color-solitude2;
+
+    }
+
+    & input:disabled ~ .custom-toggle__label,
+    & input:disabled:hover ~ .custom-toggle__label {
+      color: rgba($color-catalina-blue, 0.7);
+    }
+
+    input:checked:disabled + .custom-toggle__icon {
+      & svg {
+        & path {
+          fill: rgba($color-midnight-express, 0.3);
+        }
+      }
+    }
+
+    & input:hover + .custom-toggle__icon,
+    & input:focus + .custom-toggle__icon {
+      border-color: $color-rock-blue;
+    }
+
+    input:active + .custom-toggle__icon {
+      border-color: rgba($color-charcoal, 0.3);
+    }
+
+    @include vp-1023 {
+      transform: translateX(0);
+    }
+
+    @include vp-767 {
+      min-height: 42px;
+    }
+  }
+
+  & label {
+    & span {
+      letter-spacing: 2px;
+
+      @include vp-767 {
+        letter-spacing: normal;
+      }
+    }
+  }
+}

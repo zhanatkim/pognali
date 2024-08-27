@@ -1,0 +1,140 @@
+.button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 24px;
+  background-color: $color-pale-cornflower-blue;
+  color: $color-catalina-blue;
+  padding: 30px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color $trans-default, color $trans-default;
+
+  & svg {
+    width: 11px;
+    height: 14px;
+    margin-left: 18px;
+    margin-right: 5px;
+    margin-top: -1px;
+
+    & path {
+      fill: $color-catalina-blue;
+      transition: fill $trans-default;
+    }
+
+    @include vp-1023 {
+      margin-left: 17px;
+      margin-right: 7px;
+    }
+
+    @include vp-767 {
+      display: none;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $color-picton-blue;
+  }
+
+  &:active {
+    color: rgba($color-catalina-blue, 0.3);
+
+    & svg {
+      & path {
+        fill: rgba($color-catalina-blue, 0.3);
+      }
+    }
+  }
+
+  &--next-step {
+    padding: 29px 37px;
+    padding-left: 33px;
+    padding-right: 32px;
+    padding-top: 28px;
+    padding-bottom: 28px;
+
+    @include vp-1023 {
+      padding-left: 31px;
+      padding-right: 31px;
+    }
+  }
+
+  &--prev {
+    transform: translateX(30px);
+    background-color: transparent;
+
+    svg {
+      transform: rotate(180deg);
+      order: -1;
+      margin-left: 0;
+      margin-right: 15px;
+
+      @include vp-767 {
+        margin-left: 15px;
+        margin-right: 0;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+      color: rgba($color-catalina-blue, 0.7);
+
+      & svg {
+        & path {
+          fill: rgba($color-catalina-blue, 0.7);
+        }
+      }
+    }
+
+    &:active {
+      background-color: transparent;
+      color: rgba($color-catalina-blue, 0.3);
+
+      & svg {
+        & path {
+          fill: rgba($color-catalina-blue, 0.3);
+        }
+      }
+    }
+
+    @include vp-767 {
+      transform: translateX(0);
+    }
+  }
+
+  &--send {
+    min-width: 286px;
+
+    @include vp-767 {
+      min-width: 100%;
+    }
+
+    &:disabled {
+      user-select: none;
+      cursor: initial;
+      opacity: 0.5;
+
+      &:hover,
+      &:focus {
+        background-color: $color-pale-cornflower-blue;
+        color: $color-catalina-blue;
+      }
+    }
+  }
+
+  @include vp-767 {
+    display: block;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 30px;
+    padding: 5px;
+    width: 100%;
+    text-transform: uppercase;
+  }
+}

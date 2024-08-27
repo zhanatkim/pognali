@@ -1,0 +1,104 @@
+// Vendor
+// ---------------------------------
+
+@import "src/sass/vendor/normalize";
+// Swiper 8.4.7
+// @import "vendor/swiper";
+
+// Global
+// ---------------------------------
+
+@import "src/sass/global/fonts";
+@import "src/sass/variables";
+@import "src/sass/mixins";
+@import "src/sass/global/reboot";
+@import "src/sass/global/utils";
+@import "src/sass/global/container";
+
+// Blocks
+// ---------------------------------
+
+@import "src/sass/blocks/header";
+@import "src/sass/blocks/button";
+@import "src/sass/blocks/toggle";
+@import "src/sass/blocks/transport-toggles";
+@import "src/sass/blocks/directions-form";
+@import "src/sass/blocks/user-form";
+@import "src/sass/blocks/user-grade";
+@import "src/sass/blocks/user-avatar";
+@import "src/sass/blocks/tags-input";
+@import "src/sass/blocks/catalog-countries";
+@import "src/sass/blocks/countries-sorting";
+@import "src/sass/blocks/title-h1";
+@import "src/sass/blocks/filter-form";
+@import "src/sass/blocks/accordion";
+@import "src/sass/blocks/checkbox";
+@import "src/sass/blocks/travelers-catalog";
+@import "src/sass/blocks/traveler-card";
+@import "src/sass/blocks/traveler-card-grade";
+@import "src/sass/blocks/traveler-card-transport";
+@import "src/sass/blocks/traveler-card-likes";
+@import "src/sass/blocks/traveler-card-flags";
+@import "src/sass/blocks/title-h3";
+@import "src/sass/blocks/order-form";
+@import "src/sass/blocks/custom-toggle";
+@import "src/sass/blocks/custom-textarea";
+@import "src/sass/blocks/calendar";
+@import "src/sass/blocks/social";
+@import "src/sass/blocks/footer";
+@import "src/sass/blocks/catalog-pagination";
+@import "src/sass/blocks/select-countries";
+@import "src/sass/blocks/slider";
+
+// ---------------------------------
+
+// ❗❗❗ запрещено использовать изображения в css, касается как jpg \ png, так и svg
+
+// ❗ обязательно используйте mixin hover-focus для отключения ховеров на тач устройствах
+/* @mixin hover-focus {
+    @media (hover: hover) {
+      &:hover:not(.focus-visible) {
+        @content;
+      }
+    }
+
+    &.focus-visible:focus {
+      @content;
+    }
+  }
+*/
+/*  @include hover-focus {
+      opacity: 0.8;
+    }
+*/
+// но не используем для текстовых полей ( input, textarea )
+// так же в сборке есть отдельный миксин для hover
+/*@mixin hover {
+    @media (hover: hover) {
+      &:hover:not(.focus-visible) {
+        @content;
+      }
+    }
+  }
+*/
+// для focus
+/*@mixin focus {
+    &.focus-visible:focus {
+      @content;
+    }
+  }
+*/
+// и для active
+/*@mixin active {
+    &.focus-visible:active {
+      @content;
+    }
+  }
+*/
+// адаптив пишем внутри каждого класса (смотрим container.scss)
+
+// для фикса проблем с vh на iOS в сборке подключен скрипт
+// используя vh на проекте задавайте их также как в примере в utils.scss
+
+// для любых transition обязательно указывайте transition-property
+// transition: $trans-default ❌ ---> transition: color $trans-default ✅

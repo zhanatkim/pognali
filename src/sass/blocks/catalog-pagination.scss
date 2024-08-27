@@ -1,0 +1,123 @@
+.catalog-pagination {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  padding: 26px 29px 24px;
+  background-color: $color-default-white;
+
+  @include vp-1023 {
+    padding: 25px 28px;
+  }
+
+  @include vp-767 {
+    padding: 2px 14px 0;
+    justify-content: center;
+  }
+}
+
+.catalog-pagination__numbers {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.catalog-pagination__arrows {
+  display: flex;
+  align-items: center;
+
+  @include vp-767 {
+    justify-content: space-between;
+    width: 72%;
+  }
+}
+
+.catalog-pagination__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  user-select: none;
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: auto;
+  }
+
+  &--next {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  &--next,
+  &--prev {
+    transition: opacity $trans-default;
+    padding: 16px 14px;
+
+    @include vp-1023 {
+      padding: 16px 10px 16px 17px;
+    }
+
+    @include vp-767 {
+      padding: 14px;
+    }
+
+    @include hover-focus {
+      &:not([disabled]) {
+        opacity: 0.6;
+
+        &:active {
+          opacity: 0.3;
+        }
+      }
+    }
+
+    &:active {
+      opacity: 0.3;
+    }
+  }
+
+  &--num {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 100%;
+    padding: 16px 19px;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: background-color $trans-default, opacity $trans-default;
+
+    &.active,
+    &.is-active {
+      background-color: $color-picton-blue;
+      user-select: none;
+    }
+
+    @include hover-focus {
+      opacity: 0.6;
+
+      &:active {
+        background-color: $color-picton-blue;
+        opacity: 1;
+      }
+    }
+
+    &:active {
+      background-color: $color-picton-blue;
+      opacity: 1;
+    }
+
+    &.active {
+      background-color: $color-picton-blue;
+      opacity: 1;
+      user-select: none;
+
+      @include hover-focus {
+        opacity: 1;
+      }
+    }
+  }
+}

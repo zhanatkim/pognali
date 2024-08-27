@@ -1,0 +1,42 @@
+.user-avatar {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 298 / 237;
+
+  padding-right: 78px;
+
+  @include vp-1023 {
+    padding-right: 0;
+    aspect-ratio: 1 / 1;
+  }
+
+  @include vp-767 {
+    // aspect-ratio: unset;
+    width: calc(100% - 18px);
+  }
+}
+
+.user-avatar__image {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  background-color: $color-gainsboro;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  @include vp-1023 {
+    border-radius: 7px;
+  }
+
+  @include vp-767 {
+    border-radius: 100%;
+  }
+}

@@ -1,0 +1,127 @@
+.checkbox {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 20px 0 21px;
+    list-style: none;
+
+    @include vp-1023 {
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 15px 0 11px;
+    }
+
+    @include vp-767 {
+        flex-direction: column;
+        padding: 6px 0 17px;
+        row-gap: 10px;
+    }
+
+    &__item {
+        @include vp-1023 {
+            display: flex;
+            align-items: center;
+            width: 33.3%;
+        }
+
+        @include vp-767 {
+            width: 100%;
+        }
+    }
+
+    &__label {
+        display: flex;
+        position: relative;
+        padding-left: 37px;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 20px;
+        transition: opacity $trans-default;
+
+        &:hover {
+            .checkbox__label-icon,
+            .checkbox__label-text {
+                opacity: 0.6;
+            }
+
+            input[type="checkbox"]:checked ~ .checkbox__label-icon {
+                opacity: 1;
+            }
+        }
+
+        &:active {
+            .checkbox__label-icon,
+            .checkbox__label-text {
+                opacity: 0.3;
+            }
+
+            input[type="checkbox"]:checked ~ .checkbox__label-icon {
+                opacity: 0.3;
+            }
+
+            .checkbox__icon {
+                opacity: 0.2;
+            }
+
+        }
+
+        @include vp-767 {
+            font-size: 15px;
+            padding-left: 27px;
+        }
+        
+        &-icon {
+            position: absolute;
+            content: "";
+            width: 24px;
+            height: 24px;
+            top: -4px;
+            left: 0;
+            border-radius: 3px;
+            background-color: $color-default-white;
+            transition: opacity $trans-default;
+
+            @include vp-1023 {
+                top: -4px;
+            }
+
+            @include vp-767 {
+                width: 18px;
+                height: 18px;
+                top: -1px;
+                border-radius: 4px;
+            }
+        }
+
+        &-text {
+            transition: opacity $trans-default;
+        }
+    }
+
+    &__icon {
+        display: none;
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        z-index: 2;
+        transition: opacity $trans-default;
+    }
+
+    &__input {
+        &:checked + .checkbox__icon {
+            top: 0;
+            display: block;
+
+            @include vp-1023 {
+                top: 1px;
+            }
+
+            @include vp-767 {
+                width: 14px;
+                height: 13px;
+                top: 0;
+                left: 2px;
+            }
+        }
+    }
+}

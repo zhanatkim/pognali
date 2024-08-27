@@ -1,0 +1,152 @@
+.countries-sorting {
+  color: $color-midnight-express;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+
+  padding: 62px 0 74px 21px;
+
+  @include vp-1023 {
+    padding: 56px 0 54px 0;
+    justify-content: space-between;
+  }
+
+  @include vp-767 {
+    padding: 23px 0 16px;
+    gap: 8px;
+  }
+
+  form {
+    @include vp-767 {
+      // grid-area: filter;
+      display: flex;
+    }
+  }
+}
+
+.countries-sorting__top {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+
+  @include vp-767 {
+    grid-area: title;
+    gap: 10px;
+
+    svg {
+      width: 15px;
+      height: 10px;
+    }
+  }
+}
+
+.countries-sorting__title {
+  margin: 0;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 100%;
+  text-transform: uppercase;
+
+  @include vp-767 {
+    font-size: 16px;
+    line-height: 115%;
+  }
+}
+
+.countries-sorting__list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 25px;
+
+  @include vp-1023 {
+    gap: 21px;
+  }
+
+  @include vp-767 {
+    grid-area: filter;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 24px;
+    gap: 10px;
+  }
+}
+
+.countries-sorting__toggle {
+  .toggle__label {
+    font-weight: 700;
+    line-height: 100%;
+    text-transform: uppercase;
+    opacity: 0.3;
+
+    font-size: 20px;
+    transition: opacity $trans-default;
+  
+    @include vp-767 {
+      font-size: 16px;
+    }
+  }
+
+  @include vp-767 {
+    // grid-area: btn;
+  }
+}
+
+.countries-sorting__btn {
+  display: none;
+  font-size: 20px;
+  line-height: 100%;
+
+  border: none;
+  background-color: transparent;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 22px;
+  cursor: pointer;
+  transition: opacity $trans-default;
+
+  margin-left: auto;
+
+  @include hover-focus {
+    opacity: 0.6;
+  }
+
+  @include active {
+    opacity: 0.3;
+  }
+
+  @include vp-1023 {
+    display: flex;
+    padding: 0;
+    gap: 30px;
+  }
+
+  @include vp-767 {
+    margin: 0;
+  }
+
+}
+
+.countries-sorting__btn-text {
+  font-weight: 700;
+  line-height: 100%;
+  text-transform: uppercase;
+}
+
+.countries-sorting__btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+
+  @include vp-767 {
+    width: 16px;
+    height: 16px;
+  }
+}

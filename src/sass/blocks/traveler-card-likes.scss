@@ -1,0 +1,126 @@
+.traveler-card-likes {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+
+  @include vp-767 {
+    gap: 7px;
+  }
+
+}
+
+.traveler-card-likes__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  border-radius: 50%;
+  padding: 15px;
+  cursor: pointer;
+
+  transition: background-color $trans-default;
+
+  @include vp-1279 {
+    padding: 9px;
+  }
+
+  @include vp-1023 {
+    padding: 15px;
+  }
+
+  @include vp-767 {
+    padding: 9px;
+  }
+
+  svg {
+    transition: opacity $trans-default;
+
+    .svg-stroke { 
+      color: $color-midnight-express;
+      opacity: 0.3;
+      transition: color $trans-default opacity $trans-default;
+    }
+
+    .svg-fill {
+      color: transparent;
+      transition: color $trans-default;
+    }
+
+    @include vp-767 {
+      width: 11px;
+      height: 11px;
+    }
+  }
+
+  @include hover-focus {
+    background-color: $color-solitude2;
+    outline: none;
+
+    svg {
+      .svg-stroke {
+        opacity: 0.5;  
+      }
+    }
+
+    &:active {
+      background-color: $color-solitude2;
+  
+      svg {
+        .svg-stroke {
+          opacity: 0.1;  
+        }
+      }
+    }
+  }
+
+  &:active {
+    background-color: $color-solitude2;
+
+    svg {
+      .svg-stroke {
+        opacity: 0.1;  
+      }
+    }
+  }
+
+  //is-liked
+
+  &.is-liked {
+    background-color: $color-tutu;
+
+    svg {
+      .svg-stroke {
+        color: $color-red-orange; 
+      }
+  
+      .svg-fill {
+        color: $color-red-orange; 
+      }
+    }
+
+    @include hover-focus {
+      background-color: $color-remy;
+    }
+
+    &:active {
+      svg {
+        opacity: 0.3;
+      }
+    }
+  }
+}
+
+.traveler-card-likes__count {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: $color-midnight-express;
+  padding-right: 10%;
+
+  @include vp-767 {
+    font-size: 14px;
+    line-height: 16px;
+  }
+}

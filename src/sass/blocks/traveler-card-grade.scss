@@ -1,0 +1,79 @@
+.traveler-card-grade {
+
+  --circle-size: 60px;
+  --border-width: 5px;
+
+  width: var(--circle-size);
+  height: var(--circle-size);
+  border-radius: 50%;
+  background-image: conic-gradient($color-picton-blue var(--progress), $color-default-white 0);
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @include vp-1023 {
+    background-image: conic-gradient($color-neon-carrot var(--progress), $color-default-white 0);
+  }
+
+  @include vp-767 {
+    --circle-size: 45px;
+  }
+  
+  
+  &::before {
+    --inner-circle-size: calc(var(--circle-size) - var(--border-width));
+    --inner-circle-gap: calc(var(--border-width) / 2);
+  
+    content: '';
+    display: block;
+    width: var(--inner-circle-size);
+    height: var(--inner-circle-size);
+    background-color: $color-default-white;
+    border-radius: 50%;
+    position: absolute;
+
+    left: var(--inner-circle-gap);
+    top: var(--inner-circle-gap);
+  }
+}
+
+.traveler-card-grade__count,
+.traveler-card-grade__unit {
+  position: relative;
+  z-index: 1;
+}
+
+.traveler-card-grade__count {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 100%;
+  color: $color-midnight-express;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 110%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: rgba($color-default-black, 0.1);
+  }
+
+  @include vp-767 {
+    &::after {
+      display: none;
+    }
+  }
+}
+
+.traveler-card-grade__unit {
+  color: rgba($color-default-black, 0.4);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  padding-top: 2px;
+}
