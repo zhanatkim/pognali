@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/pognali/static/css/main.6db74dd3.css",
+    "main.js": "/pognali/static/js/main.e87503d8.js",
+    "static/media/robotomedium.woff": "/pognali/static/media/robotomedium.61c265591865cecb1c3d.woff",
+    "static/media/robotobold.woff": "/pognali/static/media/robotobold.75a1a5b5582b236e0fe3.woff",
+    "static/media/robotoregular.woff": "/pognali/static/media/robotoregular.774f99460b8c31560a3c.woff",
+    "static/media/robotomedium.woff2": "/pognali/static/media/robotomedium.70ace3870f471997ceb7.woff2",
+    "static/media/robotobold.woff2": "/pognali/static/media/robotobold.002079d85a6f27587d17.woff2",
+    "static/media/robotoregular.woff2": "/pognali/static/media/robotoregular.9429985be4f46ec8fcfc.woff2",
+    "static/media/robotothin.woff2": "/pognali/static/media/robotothin.fe6d1e4713db5e3f352e.woff2",
+    "static/media/robotothin.woff": "/pognali/static/media/robotothin.90d40d3af5a171c88855.woff",
+    "static/media/logo.svg": "/pognali/static/media/logo.79f56b01484d903d49ecb38730066f8b.svg",
+    "index.html": "/pognali/index.html",
+    "static/media/arrow-icon.svg": "/pognali/static/media/arrow-icon.12f971477d327aa81ef25418d0d12ccc.svg",
+    "main.6db74dd3.css.map": "/pognali/static/css/main.6db74dd3.css.map",
+    "main.e87503d8.js.map": "/pognali/static/js/main.e87503d8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6db74dd3.css",
+    "static/js/main.e87503d8.js"
+  ]
+}
